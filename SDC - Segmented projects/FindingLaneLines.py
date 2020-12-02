@@ -108,9 +108,10 @@ def weighted_img(img, initial_img, α=0.8, β=1., γ=0.):
 
 # TODO: Build your pipeline that will draw lane lines on the test_images
 # then save them to the test_images_output directory.
-ImgDir = "test_images/"
-for img in os.listdir(ImgDir):
-    image = mpimg.imread(ImgDir + img)
+
+imgList = os.listdir("test_images/")
+
+for img in imgList:
     copy = np.copy(image)
     
     grayImg = grayscale(copy)
