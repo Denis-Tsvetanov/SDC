@@ -2,6 +2,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import math
+import os
 import numpy as np
 import cv2
 %matplotlib inline
@@ -104,3 +105,23 @@ def weighted_img(img, initial_img, α=0.8, β=1., γ=0.):
     NOTE: initial_img and img must be the same shape!
     """
     return cv2.addWeighted(initial_img, α, img, β, γ)
+
+# TODO: Build your pipeline that will draw lane lines on the test_images
+# then save them to the test_images_output directory.
+for img in os.listdir("test_images/"):
+    image = mpimg.imread(img)
+    grayImg = grayscale(image)
+    gaussianImg = gaussian_blur(grayImg,3)
+    cannyImg = canny(gaussianImg,80,180)
+    
+    imshape = image.shape
+    vertices = np.array([[(50,imshape[0]),(430, 300), (520, 300), (900,imshape[0])]], dtype=np.int32)
+    maskedImg = region_of_interest(cannyImg,vertices)
+    houghImg = hough_lines(maskedImg, 2, np.pi/180, 15, 40, 20)
+    
+    line_image = np.copy(image)*0
+    linedImg = draw_lines(line_image, houghImg, color=[255, 0, 0], thickness=2)
+    color_edges = np.dstack((cannyImg, cannyImg, cannyImg))
+    result = weighted_img(color_edges, image, α=0.8, β=1., γ=0.)
+    
+    plt.imshow(result)
