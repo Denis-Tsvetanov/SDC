@@ -108,8 +108,11 @@ def weighted_img(img, initial_img, α=0.8, β=1., γ=0.):
 
 # TODO: Build your pipeline that will draw lane lines on the test_images
 # then save them to the test_images_output directory.
-for img in os.listdir("test_images/"):
-    image = mpimg.imread(img)
+# TODO: Build your pipeline that will draw lane lines on the test_images
+# then save them to the test_images_output directory.
+ImgDir = "test_images/"
+for img in os.listdir(ImgDir):
+    image = mpimg.imread(ImgDir + img)
     grayImg = grayscale(image)
     gaussianImg = gaussian_blur(grayImg,3)
     cannyImg = canny(gaussianImg,80,180)
@@ -119,8 +122,8 @@ for img in os.listdir("test_images/"):
     maskedImg = region_of_interest(cannyImg,vertices)
     houghImg = hough_lines(maskedImg, 2, np.pi/180, 15, 40, 20)
     
-    line_image = np.copy(image)*0
-    linedImg = draw_lines(line_image, houghImg, color=[255, 0, 0], thickness=2)
+    #line_image = np.copy(image)*0
+    #linedImg = draw_lines(line_image, houghImg, color=[255, 0, 0], thickness=2)
     color_edges = np.dstack((cannyImg, cannyImg, cannyImg))
     result = weighted_img(color_edges, image, α=0.8, β=1., γ=0.)
     
