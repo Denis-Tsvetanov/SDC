@@ -12,6 +12,15 @@ In this project, I will write a software pipeline to identify the lane boundarie
 
 The complete pipeline can be found [here](https://github.com/Denis-Tsvetanov/SDC/tree/master/SDC%20-%20Segmented%20projects/AdvancedLaneFinderJob/advanced_lane_finding.ipynb).
 
+## Development order
+
+0. First I ordered the known functions from all the lessons in the code
+1. However I have connected them improperly and used for loops, which caused data not to be passed from block
+to block.
+2. Analyzed known issues and separated steps into functions, making sure each one was called properly.
+3. Added missing pieces of code like sanity checks, class used for video and more.
+4. Corrected any pieces missing with the help of [Miguel Martinez](https://github.com/miguelangel)
+whom I am very thankfull for the detailed and self-explanatory work, which I will try to reproduce in all my projects.
 
 ## Goals/Steps
 My pipeline consisted of 10 steps:
@@ -26,15 +35,6 @@ My pipeline consisted of 10 steps:
 7. Warp the detected lane boundaries back onto the original image,
 8. Display lane boundaries and numerical estimation of lane curvature and vehicle position,
 9. Run pipeline in a video.
-
-
-## Development order
-
-0. First I ordered the known functions from all the lessons in the code
-1. However I have connected them improperly and used for loops, which caused data not to be passed from block
-to block.
-2. Analyzed known issues and separated steps into functions, making sure each one was called properly.
-3. Added missing pieces of code like sanity checks, class used for video and more.
 
 ### Step 0: Import and initialize the packages needed in the project
 
