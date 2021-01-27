@@ -27,6 +27,15 @@ My pipeline consisted of 10 steps:
 8. Display lane boundaries and numerical estimation of lane curvature and vehicle position,
 9. Run pipeline in a video.
 
+
+## Development order
+
+0. First I ordered the known functions from all the lessons in the code
+1. However I have connected them improperly and used for loops, which caused data not to be passed from block
+to block.
+2. Analyzed known issues and separated steps into functions, making sure each one was called properly.
+3. Added missing pieces of code like sanity checks, class used for video and more.
+
 ### Step 0: Import and initialize the packages needed in the project
 
 It is not good to reinvent the wheel every time. That's why I have chosen to use some well known libraries:
