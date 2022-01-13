@@ -372,5 +372,3 @@ Please find below the top 5 softmax predictions per image.
 
 
 I really hope you have enjoyed reading this project as much I have done writing it for you.
-
-Miguel Ángel
